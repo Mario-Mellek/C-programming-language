@@ -81,5 +81,16 @@ int main(void)
 		printf("Player: %d\nComputer: %d", player, computer);
 		putchar('\n');
 	}
+	if (computer > player)
+	{
+		printf("----------You Lost----------\n");
+	}else if (player > computer)
+	{
+		printf("----------You Won----------\n");
+
+	}else
+	{
+		printf("----------It's a tie----------\n");
+	}
 	return (0);
 }
