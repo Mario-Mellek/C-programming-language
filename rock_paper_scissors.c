@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-	#define randnum(min, max) \
-        	((rand() % (int)(((max) + 1) - (min))) + (min))
+#define randnum(min, max) \
+	((rand() % (int)(((max) + 1) - (min))) + (min))
 
 int main(void)
 {
@@ -11,17 +11,17 @@ int main(void)
 	int player = 0;
 	int computer = 0;
 
-	int play()
-	{	
+	int play(void)
+	{
 		printf("\nRock\tPaper\tScissors");
 		printf("\n1\t2\t3");
 		int input;
-		do
-		{
+
+		do {
 			printf("\n\nSelect a number: ");
 			scanf("%d", &input);
-		}while((input > 3) || (input <= 0));
-		switch(input)
+		} while ((input > 3) || (input <= 0));
+		switch (input)
 		{
 			case 1:
 				printf("\nYou selected Rock, %d\n", input);
@@ -37,7 +37,7 @@ int main(void)
 		}
 		printf("\n\n-- Computer Selection --\n");
 		srand(time(NULL));
-    		switch(randnum(1, 3))
+		switch (randnum(1, 3))
 		{
 			case 1:
 				printf("\nComputer Played Rock\n");
@@ -60,10 +60,10 @@ int main(void)
 				break;
 			case 3:
 				printf("\nComputer played Scissors\n");
-				input == 2 ? (printf("You lost this round") && 
-						(computer +=1))
+				input == 2 ? (printf("You lost this round") &&
+						(computer += 1))
 					: input == 1 ? (printf("You won this round") &&
-							(player +=1))
+							(player += 1))
 					: printf("It's a tie");
 					putchar('\n');
 				break;
@@ -74,7 +74,7 @@ int main(void)
 
 	int i;
 
-	for (i = 1; i <= 5; i++)
+	for (i = 1; i <= 3; i++)
 	{
 		printf("\n\n------------Round number %d------------", i);
 		play();
@@ -84,13 +84,14 @@ int main(void)
 	if (computer > player)
 	{
 		printf("----------You Lost----------\n");
-	}else if (player > computer)
+	} else if (player > computer)
 	{
 		printf("----------You Won----------\n");
 
-	}else
+	} else
 	{
 		printf("----------It's a tie----------\n");
 	}
+	printf("\n\n\t__GAME OVER__\n\n");
 	return (0);
 }
