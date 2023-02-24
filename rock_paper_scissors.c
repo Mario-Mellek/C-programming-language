@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <ctype.h>
 int play(void);
 int player = 0;
 int computer = 0;
+char name[20];
 
 #define randnum(min, max) \
 	((rand() % (int)(((max) + 1) - (min))) + (min))
@@ -12,11 +14,18 @@ int main(void)
 {
 	int i;
 
+	do {
+	printf("\n\nEnter your name: ");
+	scanf("%19s", name);
+	if (isalpha(name[0]) == 0)
+		printf("Your name must start with a charachter");
+	} while (isalpha(name[0]) == 0);
+
 	for (i = 1; i <= 3; i++)
 	{
 		printf("\n\n------------Round number %d------------", i);
 		play();
-		printf("Player: %d\nComputer: %d", player, computer);
+		printf("%s: %d\nComputer: %d", name, player, computer);
 		putchar('\n');
 	}
 	if (computer > player)
@@ -44,6 +53,7 @@ int play(void)
 		printf("\n\nSelect a number: ");
 		scanf("%d", &input);
 	} while ((input > 3) || (input <= 0));
+
 	switch (input)
 	{
 		case 1:
