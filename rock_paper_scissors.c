@@ -5,7 +5,7 @@
 int play(void);
 int player = 0;
 int computer = 0;
-char name[20];
+char name[10];
 
 #define randnum(min, max) \
 	((rand() % (int)(((max) + 1) - (min))) + (min))
@@ -16,7 +16,7 @@ int main(void)
 
 	do {
 	printf("\n\nEnter your name: ");
-	scanf("%19s", name);
+	scanf("%9s", name);
 	if (isalpha(name[0]) == 0)
 		printf("Your name must start with a charachter");
 	} while (isalpha(name[0]) == 0);
@@ -25,7 +25,11 @@ int main(void)
 	{
 		printf("\n\n------------Round number %d------------", i);
 		play();
-		printf("%s: %d\nComputer: %d", name, player, computer);
+		printf("+=====================+====================+\n");
+		printf("|         %s       |       Computer     |\n", name);
+		printf("+=====================+====================+\n");
+		printf("|           %d         |          %d         |\n", player, computer);
+		printf("+=====================+====================+\n");
 		putchar('\n');
 	}
 	if (computer > player)
